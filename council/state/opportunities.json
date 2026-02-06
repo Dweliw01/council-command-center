@@ -1,9 +1,62 @@
 {
-  "lastUpdate": "2026-02-06T22:27:00Z",
-  "pipeline": {
-    "detected": [],
-    "researching": [],
-    "ready": [],
-    "won": []
+  "last_scan": "2026-02-06T22:34:19.620240Z",
+  "jobs": {
+    "scan_time": "2026-02-06T22:34:19.620289Z",
+    "new_opportunities": []
+  },
+  "trading": {
+    "scan_time": "2026-02-06T22:34:22.017534Z",
+    "market_status": "after-hours",
+    "alerts": [
+      {
+        "symbol": "NVDA",
+        "price": 185.41,
+        "change_pct": 7.87,
+        "volume_ratio": 1.11,
+        "signal": "GAP_UP",
+        "all_signals": [
+          "GAP_UP"
+        ],
+        "note": "Gap up 7.9%"
+      },
+      {
+        "symbol": "AMD",
+        "price": 208.44,
+        "change_pct": 8.28,
+        "volume_ratio": 0.86,
+        "signal": "GAP_UP",
+        "all_signals": [
+          "GAP_UP"
+        ],
+        "note": "Gap up 8.3%"
+      },
+      {
+        "symbol": "PLTR",
+        "price": 135.9,
+        "change_pct": 4.53,
+        "volume_ratio": 0.67,
+        "signal": "GAP_UP",
+        "all_signals": [
+          "GAP_UP"
+        ],
+        "note": "Gap up 4.5%"
+      },
+      {
+        "symbol": "SMCI",
+        "price": 34.38,
+        "change_pct": 11.44,
+        "volume_ratio": 0.83,
+        "signal": "GAP_UP",
+        "all_signals": [
+          "GAP_UP"
+        ],
+        "note": "Gap up 11.4%"
+      }
+    ]
+  },
+  "summary": {
+    "new_jobs": 0,
+    "trading_alerts": 4,
+    "market_status": "after-hours"
   }
 }
