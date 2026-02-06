@@ -42,16 +42,30 @@ def sync_dashboard():
     opportunities = []
     trading = opps.get("trading", {})
     alerts = trading.get("alerts", [])
+    analyzed = trading.get("analyzed", {})  # Research results
     
     for alert in alerts:
-        opportunities.append({
-            "id": f"{alert['symbol'].lower()}-{datetime.now().strftime('%Y%m%d')}",
-            "name": f"{alert['symbol']} {alert['signal']} {alert['change_pct']:+.1f}%",
+        symbol = alert['symbol']
+        # Check if research has analyzed this alert
+        research = analyzed.get(symbol, {})
+        stage = research.get("stage", "detected")
+        
+        opp = {
+            "id": f"{symbol.lower()}-{datetime.now().strftime('%Y%m%d')}",
+            "name": f"{symbol} {alert['signal']} {alert['change_pct']:+.1f}%",
             "type": "trade",
             "amount": int(abs(alert['change_pct']) * 15),  # Rough potential value
-            "stage": "detected",
+            "stage": stage,
             "createdAt": opps.get("last_scan", datetime.now().isoformat())
-        })
+        }
+        
+        # Add research data if available
+        if research:
+            opp["recommendation"] = research.get("recommendation")
+            opp["confidence"] = research.get("confidence")
+            opp["thesis"] = research.get("thesis", {})
+        
+        opportunities.append(opp)
     
     # Extract job opportunities
     jobs = opps.get("jobs", {})

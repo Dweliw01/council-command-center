@@ -1,9 +1,69 @@
 {
   "entries": [
     {
+      "timestamp": "2026-02-06T23:04:59.779300Z",
+      "agent": "research",
+      "icon": "\u2705",
+      "message": "Research complete: 4 trades, 0 gigs analyzed"
+    },
+    {
+      "timestamp": "2026-02-06T23:04:59.778112Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed SMCI: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:04:59.697314Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed PLTR: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:04:59.615993Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed AMD: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:04:59.529934Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed NVDA: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:03:00.144116Z",
+      "agent": "research",
+      "icon": "\u2705",
+      "message": "Research complete: 4 trades, 0 gigs analyzed"
+    },
+    {
+      "timestamp": "2026-02-06T23:03:00.143076Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed SMCI: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:03:00.060246Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed PLTR: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:02:59.974807Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed AMD: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
+      "timestamp": "2026-02-06T23:02:59.897345Z",
+      "agent": "research",
+      "icon": "\ud83d\udcc8",
+      "message": "Analyzed NVDA: BUY_DIP recommendation (2.0:1 R/R)"
+    },
+    {
       "timestamp": "2026-02-06T22:27:00Z",
       "agent": "main",
-      "icon": "🚀",
+      "icon": "\ud83d\ude80",
       "message": "Council Command Center initialized"
     }
   ]
