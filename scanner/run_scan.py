@@ -4,6 +4,7 @@ Scanner Runner - Orchestrates job and trading scanners
 """
 
 import json
+import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -67,6 +68,32 @@ def run_all_scans() -> dict:
     except Exception as e:
         print(f"\n❌ Error saving results: {e}")
     
+    # Auto-sync dashboard
+    print("\n🔄 Syncing dashboard...")
+    try:
+        sync_script = "/root/council-command-center/council/scripts/sync_dashboard.py"
+        subprocess.run(["python3", sync_script], check=True)
+        print("✅ Dashboard synced")
+    except Exception as e:
+        print(f"❌ Dashboard sync failed: {e}")
+    
+    # Auto-deploy to Vercel if we have alerts
+    deployed = False
+    if job_results.get("new_opportunities") or trading_results.get("alerts"):
+        print("\n🚀 Deploying dashboard to Vercel...")
+        try:
+            subprocess.run([
+                "npx", "vercel", "--prod", "--yes",
+                "--token", "yKnY7BLXwJ19Wvl8Z54TjWXl"
+            ], cwd="/root/council-command-center/dashboard", check=True)
+            print("✅ Dashboard deployed!")
+            deployed = True
+        except Exception as e:
+            print(f"❌ Vercel deploy failed: {e}")
+    
+    # Add deployment status to summary
+    combined["summary"]["deployed"] = deployed
+    
     # Print summary
     print("\n" + "=" * 50)
     print("SCAN SUMMARY")
@@ -75,6 +102,7 @@ def run_all_scans() -> dict:
     print(f"Market: {combined['summary']['market_status']}")
     print(f"New Jobs: {combined['summary']['new_jobs']}")
     print(f"Trading Alerts: {combined['summary']['trading_alerts']}")
+    print(f"Deployed: {'✅ Yes' if deployed else '⏭️ No (no new alerts)'}")
     
     if trading_results.get("alerts"):
         print("\n⚡ TRADING ALERTS:")
