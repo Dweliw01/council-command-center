@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""
+Scanner Runner - Orchestrates job and trading scanners
+"""
+
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+
+# Import scanners
+from job_scanner import scan_jobs
+from trading_scanner import scan_trading
+
+# Output path for combined opportunities
+OUTPUT_FILE = Path("/root/council-command-center/council/state/opportunities.json")
+
+
+def run_all_scans() -> dict:
+    """Run all scanners and combine results"""
+    scan_time = datetime.utcnow().isoformat() + "Z"
+    
+    print("=" * 50)
+    print(f"Scanner Run: {scan_time}")
+    print("=" * 50)
+    
+    # Run job scanner
+    print("\n📋 JOB SCANNER")
+    print("-" * 30)
+    try:
+        job_results = scan_jobs()
+        job_count = len(job_results.get("new_opportunities", []))
+        print(f"Found {job_count} new job opportunities")
+    except Exception as e:
+        print(f"Job scanner error: {e}")
+        job_results = {"scan_time": scan_time, "new_opportunities": [], "error": str(e)}
+    
+    # Run trading scanner
+    print("\n📈 TRADING SCANNER")
+    print("-" * 30)
+    try:
+        trading_results = scan_trading()
+        alert_count = len(trading_results.get("alerts", []))
+        print(f"Found {alert_count} trading alerts")
+    except Exception as e:
+        print(f"Trading scanner error: {e}")
+        trading_results = {"scan_time": scan_time, "market_status": "unknown", "alerts": [], "error": str(e)}
+    
+    # Combine results
+    combined = {
+        "last_scan": scan_time,
+        "jobs": job_results,
+        "trading": trading_results,
+        "summary": {
+            "new_jobs": len(job_results.get("new_opportunities", [])),
+            "trading_alerts": len(trading_results.get("alerts", [])),
+            "market_status": trading_results.get("market_status", "unknown")
+        }
+    }
+    
+    # Save to state file
+    try:
+        OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with open(OUTPUT_FILE, "w") as f:
+            json.dump(combined, f, indent=2)
+        print(f"\n✅ Results saved to {OUTPUT_FILE}")
+    except Exception as e:
+        print(f"\n❌ Error saving results: {e}")
+    
+    # Print summary
+    print("\n" + "=" * 50)
+    print("SCAN SUMMARY")
+    print("=" * 50)
+    print(f"Time: {scan_time}")
+    print(f"Market: {combined['summary']['market_status']}")
+    print(f"New Jobs: {combined['summary']['new_jobs']}")
+    print(f"Trading Alerts: {combined['summary']['trading_alerts']}")
+    
+    if trading_results.get("alerts"):
+        print("\n⚡ TRADING ALERTS:")
+        for alert in trading_results["alerts"]:
+            print(f"  {alert['symbol']}: {alert['signal']} ({alert['change_pct']:+.1f}%) - {alert['note']}")
+    
+    if job_results.get("new_opportunities"):
+        print("\n💼 NEW JOBS:")
+        for job in job_results["new_opportunities"][:5]:  # Show first 5
+            print(f"  [{job['source']}] {job['title'][:50]}...")
+    
+    return combined
+
+
+def main():
+    """Entry point"""
+    try:
+        result = run_all_scans()
+        # Exit with error code if there were errors
+        if result["jobs"].get("error") or result["trading"].get("error"):
+            sys.exit(1)
+        return result
+    except Exception as e:
+        print(f"Fatal error: {e}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
