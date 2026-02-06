@@ -70,9 +70,14 @@ def sync_dashboard():
     # Build dashboard data
     now = datetime.now().isoformat() + "Z"
     
+    balance = dashboard_state.get("balance", 500)
+    target = dashboard_state.get("target", 2399)
+    progress = round((balance / target) * 100, 1) if target > 0 else 0
+    
     data = {
-        "balance": dashboard_state.get("balance", 500),
-        "target": dashboard_state.get("target", 2399),
+        "balance": balance,
+        "target": target,
+        "progress": progress,
         "startDate": dashboard_state.get("startDate", "2026-02-04"),
         "lastUpdate": now,
         "agents": {
@@ -99,7 +104,8 @@ def sync_dashboard():
             }
         ])[-10:],  # Last 10 feed entries
         "nextActions": [
-            f"Review {len(opportunities)} opportunities" if opportunities else "Run scanner for opportunities"
+            {"text": f"Review {len(opportunities)} opportunities" if opportunities else "Run scanner for opportunities", "done": False},
+            {"text": "Check market status", "done": False}
         ]
     }
     
