@@ -77,6 +77,25 @@ def run_all_scans() -> dict:
     except Exception as e:
         print(f"❌ Dashboard sync failed: {e}")
     
+    # After syncing dashboard, run research on new opportunities
+    research_status = None
+    if job_results.get("new_opportunities") or trading_results.get("alerts"):
+        print("\n📊 Running research analysis...")
+        try:
+            research_script = "/root/council-command-center/research/run_research.py"
+            result = subprocess.run(["python3", research_script], 
+                                  capture_output=True, text=True, timeout=120)
+            if result.returncode == 0:
+                print("✅ Research complete")
+                print(result.stdout)
+                research_status = "complete"
+            else:
+                print(f"❌ Research failed: {result.stderr}")
+                research_status = "failed"
+        except Exception as e:
+            print(f"❌ Research error: {e}")
+            research_status = "error"
+    
     # Auto-deploy to Vercel if we have alerts
     deployed = False
     if job_results.get("new_opportunities") or trading_results.get("alerts"):
@@ -91,8 +110,9 @@ def run_all_scans() -> dict:
         except Exception as e:
             print(f"❌ Vercel deploy failed: {e}")
     
-    # Add deployment status to summary
+    # Add deployment and research status to summary
     combined["summary"]["deployed"] = deployed
+    combined["summary"]["research"] = research_status
     
     # Print summary
     print("\n" + "=" * 50)
@@ -102,6 +122,8 @@ def run_all_scans() -> dict:
     print(f"Market: {combined['summary']['market_status']}")
     print(f"New Jobs: {combined['summary']['new_jobs']}")
     print(f"Trading Alerts: {combined['summary']['trading_alerts']}")
+    if research_status:
+        print(f"Research: {'✅ Complete' if research_status == 'complete' else '❌ Failed'}")
     print(f"Deployed: {'✅ Yes' if deployed else '⏭️ No (no new alerts)'}")
     
     if trading_results.get("alerts"):
