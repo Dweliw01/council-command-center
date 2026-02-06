@@ -1,0 +1,24 @@
+{
+  "balance": 500,
+  "target": 2399,
+  "startDate": "2026-02-04",
+  "lastUpdate": "2026-02-06T22:27:00Z",
+  "agents": {
+    "scanner": {
+      "status": "idle",
+      "lastRun": null,
+      "runsToday": 0,
+      "hitsToday": 0
+    },
+    "research": {
+      "status": "idle",
+      "lastRun": null,
+      "queueLength": 0
+    }
+  },
+  "income": {
+    "freelance": 0,
+    "trading": 0,
+    "other": 0
+  }
+}

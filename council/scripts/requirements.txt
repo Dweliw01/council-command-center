@@ -1,0 +1,2 @@
+# Council Command Center - State Management Dependencies
+# No external dependencies required - uses Python standard library only
