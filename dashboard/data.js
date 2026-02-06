@@ -1,6 +1,5 @@
 // Council Command Center Dashboard Data
 // Last sync: 2026-02-06T22:34Z
-// Auto-updated by scanner
 
 const DASHBOARD_DATA = {
   balance: 500,
@@ -11,14 +10,14 @@ const DASHBOARD_DATA = {
   agents: {
     scanner: {
       status: "active",
-      lastRun: "2026-02-06T22:34:00Z",
-      runsToday: 1,
+      lastScan: "2026-02-06T22:34:00Z",
+      scansToday: 1,
       hitsToday: 4
     },
     research: {
       status: "idle",
-      lastRun: null,
-      queueLength: 4
+      lastTask: "Awaiting opportunities",
+      queueCount: 4
     }
   },
   
@@ -30,40 +29,36 @@ const DASHBOARD_DATA = {
   
   opportunities: [
     {
-      id: "nvda-gap-001",
+      id: "smci-gap-001",
+      name: "SMCI Gap Up +11.4%",
       type: "trade",
-      title: "NVDA Gap Up +7.9%",
-      source: "scanner",
-      potentialValue: 100,
-      status: "detected",
-      detectedAt: "2026-02-06T22:34:00Z"
+      amount: 150,
+      stage: "detected",
+      createdAt: "2026-02-06T22:34:00Z"
     },
     {
       id: "amd-gap-001",
+      name: "AMD Gap Up +8.3%",
       type: "trade", 
-      title: "AMD Gap Up +8.3%",
-      source: "scanner",
-      potentialValue: 100,
-      status: "detected",
-      detectedAt: "2026-02-06T22:34:00Z"
+      amount: 100,
+      stage: "detected",
+      createdAt: "2026-02-06T22:34:00Z"
+    },
+    {
+      id: "nvda-gap-001",
+      name: "NVDA Gap Up +7.9%",
+      type: "trade",
+      amount: 100,
+      stage: "detected",
+      createdAt: "2026-02-06T22:34:00Z"
     },
     {
       id: "pltr-gap-001",
+      name: "PLTR Gap Up +4.5%",
       type: "trade",
-      title: "PLTR Gap Up +4.5%",
-      source: "scanner",
-      potentialValue: 75,
-      status: "detected",
-      detectedAt: "2026-02-06T22:34:00Z"
-    },
-    {
-      id: "smci-gap-001",
-      type: "trade",
-      title: "SMCI Gap Up +11.4%",
-      source: "scanner",
-      potentialValue: 150,
-      status: "detected",
-      detectedAt: "2026-02-06T22:34:00Z"
+      amount: 75,
+      stage: "detected",
+      createdAt: "2026-02-06T22:34:00Z"
     }
   ],
   
@@ -93,12 +88,6 @@ const DASHBOARD_DATA = {
       message: "NVDA gap up +7.9%"
     },
     {
-      timestamp: "2026-02-06T22:34:00Z",
-      agent: "scanner",
-      icon: "🔍",
-      message: "Job scan complete - checking Upwork & Freelancer"
-    },
-    {
       timestamp: "2026-02-06T22:26:00Z",
       agent: "main",
       icon: "🚀",
@@ -109,6 +98,6 @@ const DASHBOARD_DATA = {
   nextActions: [
     "Review SMCI gap (+11.4%)",
     "Check AMD pre-market tomorrow",
-    "Search for Make.com gigs manually"
+    "Search for Make.com gigs"
   ]
 };
