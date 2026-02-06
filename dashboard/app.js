@@ -111,7 +111,12 @@ function renderAgentCards(agents) {
   `;
 }
 
+// Store opportunities globally for click access
+window.opportunitiesData = [];
+
 function renderPipeline(opportunities) {
+  window.opportunitiesData = opportunities;
+  
   const stages = ['detected', 'researching', 'ready', 'won'];
   const stageLabels = {
     detected: 'Detected',
@@ -127,18 +132,31 @@ function renderPipeline(opportunities) {
   
   const columns = stages.map(stage => {
     const items = grouped[stage];
-    const cards = items.map(opp => `
-      <div class="opportunity-card ${opp.type}">
-        <div class="opp-name" title="${opp.name}">${opp.name}</div>
-        <div class="opp-meta">
-          <span class="opp-type">${opp.type}</span>
-          <span class="opp-amount">${formatCurrency(opp.amount)}</span>
+    const cards = items.map((opp, idx) => {
+      const hasThesis = opp.thesis && opp.thesis.entry;
+      const clickable = hasThesis ? 'clickable' : '';
+      return `
+        <div class="opportunity-card ${opp.type} ${clickable}" 
+             onclick="showOpportunityDetail('${opp.id}')"
+             data-id="${opp.id}">
+          <div class="opp-name" title="${opp.name}">${opp.name}</div>
+          <div class="opp-meta">
+            <span class="opp-type">${opp.type}</span>
+            <span class="opp-amount">${formatCurrency(opp.amount)}</span>
+          </div>
+          ${opp.recommendation ? `
+          <div class="opp-meta" style="margin-top: 0.25rem;">
+            <span class="recommendation ${opp.recommendation}">${opp.recommendation}</span>
+            <span class="confidence">${opp.confidence || ''}</span>
+          </div>
+          ` : `
+          <div class="opp-meta" style="margin-top: 0.25rem;">
+            <span>${formatTime(opp.createdAt)}</span>
+          </div>
+          `}
         </div>
-        <div class="opp-meta" style="margin-top: 0.25rem;">
-          <span>${formatTime(opp.createdAt)}</span>
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
     
     return `
       <div class="pipeline-column">
@@ -158,7 +176,68 @@ function renderPipeline(opportunities) {
         ${columns}
       </div>
     </div>
+    <div id="opportunity-modal" class="modal" onclick="closeModal(event)">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
   `;
+}
+
+function showOpportunityDetail(id) {
+  const opp = window.opportunitiesData.find(o => o.id === id);
+  if (!opp || !opp.thesis) return;
+  
+  const t = opp.thesis;
+  const html = `
+    <h2>${opp.name}</h2>
+    <div class="thesis-badge ${opp.recommendation}">${opp.recommendation} (${opp.confidence} confidence)</div>
+    
+    <div class="thesis-section">
+      <h3>🐂 Bull Case</h3>
+      <p>${t.bull_case || 'N/A'}</p>
+    </div>
+    
+    <div class="thesis-section">
+      <h3>🐻 Bear Case</h3>
+      <p>${t.bear_case || 'N/A'}</p>
+    </div>
+    
+    <div class="thesis-levels">
+      <div class="level entry">
+        <span class="level-label">Entry</span>
+        <span class="level-value">$${t.entry?.toFixed(2) || 'N/A'}</span>
+      </div>
+      <div class="level stop">
+        <span class="level-label">Stop Loss</span>
+        <span class="level-value">$${t.stop_loss?.toFixed(2) || 'N/A'}</span>
+      </div>
+      <div class="level target">
+        <span class="level-label">Target</span>
+        <span class="level-value">$${t.target?.toFixed(2) || 'N/A'}</span>
+      </div>
+    </div>
+    
+    <div class="thesis-rr">
+      <strong>Risk/Reward:</strong> ${t.risk_reward || 'N/A'}
+    </div>
+    
+    ${t.support ? `
+    <div class="thesis-sr">
+      <span><strong>Support:</strong> $${t.support?.toFixed(2)}</span>
+      <span><strong>Resistance:</strong> $${t.resistance?.toFixed(2)}</span>
+    </div>
+    ` : ''}
+  `;
+  
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('opportunity-modal').classList.add('show');
+}
+
+function closeModal(event) {
+  if (event && event.target.id !== 'opportunity-modal') return;
+  document.getElementById('opportunity-modal').classList.remove('show');
 }
 
 function renderFeed(feed) {

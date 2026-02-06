@@ -1,12 +1,12 @@
 {
-  "last_scan": "2026-02-06T23:04:54.862444Z",
+  "last_scan": "2026-02-06T23:10:54.490068Z",
   "jobs": {
-    "scan_time": "2026-02-06T23:04:54.862483Z",
+    "scan_time": "2026-02-06T23:10:54.490146Z",
     "new_opportunities": [],
     "analyzed": {}
   },
   "trading": {
-    "scan_time": "2026-02-06T23:04:57.339641Z",
+    "scan_time": "2026-02-06T23:10:56.805088Z",
     "market_status": "after-hours",
     "alerts": [
       {
@@ -70,7 +70,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "high",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:04:59.529160Z"
+        "analyzed_at": "2026-02-06T23:10:58.976355Z"
       },
       "AMD": {
         "symbol": "AMD",
@@ -87,7 +87,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "medium",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:04:59.615469Z"
+        "analyzed_at": "2026-02-06T23:10:59.058985Z"
       },
       "PLTR": {
         "symbol": "PLTR",
@@ -104,7 +104,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "medium",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:04:59.696992Z"
+        "analyzed_at": "2026-02-06T23:10:59.147446Z"
       },
       "SMCI": {
         "symbol": "SMCI",
@@ -121,7 +121,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "medium",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:04:59.777752Z"
+        "analyzed_at": "2026-02-06T23:10:59.228073Z"
       }
     }
   },
@@ -130,12 +130,12 @@
     "trading_alerts": 4,
     "market_status": "after-hours"
   },
-  "last_research": "2026-02-06T23:04:59.778555Z",
+  "last_research": "2026-02-06T23:10:59.228845Z",
   "research_summary": {
     "trades_analyzed": 4,
     "gigs_analyzed": 0,
     "trades_ready": 4,
     "gigs_ready": 0,
-    "last_run": "2026-02-06T23:04:59.778592Z"
+    "last_run": "2026-02-06T23:10:59.228896Z"
   }
 }

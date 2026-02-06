@@ -462,3 +462,159 @@ body {
     gap: 0.5rem;
   }
 }
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #0f3460;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+.modal-content h2 {
+  margin: 0 0 1rem 0;
+  color: #00d9ff;
+}
+
+.thesis-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.thesis-badge.BUY_NOW { background: #00c853; color: #000; }
+.thesis-badge.BUY_DIP { background: #4CAF50; color: #fff; }
+.thesis-badge.WATCH { background: #ff9800; color: #000; }
+.thesis-badge.PASS { background: #f44336; color: #fff; }
+
+.thesis-section {
+  margin-bottom: 1.5rem;
+}
+
+.thesis-section h3 {
+  margin: 0 0 0.5rem 0;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.thesis-section p {
+  margin: 0;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.thesis-levels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.level {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.level-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.level-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.level.entry .level-value { color: #00d9ff; }
+.level.stop .level-value { color: #f44336; }
+.level.target .level-value { color: #4CAF50; }
+
+.thesis-rr {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 1rem;
+  background: rgba(0, 217, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.thesis-sr {
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Clickable cards */
+.opportunity-card.clickable {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.opportunity-card.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+}
+
+.recommendation {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.recommendation.BUY_NOW { background: #00c853; color: #000; }
+.recommendation.BUY_DIP { background: #4CAF50; color: #fff; }
+.recommendation.WATCH { background: #ff9800; color: #000; }
+.recommendation.PASS { background: #f44336; color: #fff; }
+
+.confidence {
+  font-size: 0.7rem;
+  color: #888;
+  margin-left: 0.5rem;
+}
