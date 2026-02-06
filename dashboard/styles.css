@@ -1,0 +1,464 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+  --accent: #4ade80;
+  --accent-dim: #22c55e;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: #334155;
+  --scanner-color: #60a5fa;
+  --research-color: #a78bfa;
+  --gig-color: #4ade80;
+  --trade-color: #fbbf24;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Progress Header */
+.progress-header {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.progress-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.progress-title h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.progress-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.progress-bar-container {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+  border-radius: 8px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--bg-primary);
+}
+
+.progress-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Agent Status Cards */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.agent-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.25rem;
+  border-left: 4px solid;
+}
+
+.agent-card.scanner {
+  border-left-color: var(--scanner-color);
+}
+
+.agent-card.research {
+  border-left-color: var(--research-color);
+}
+
+.agent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.agent-name {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agent-icon {
+  font-size: 1.25rem;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: rgba(74, 222, 128, 0.2);
+  color: var(--accent);
+}
+
+.status-badge.idle {
+  background: rgba(148, 163, 184, 0.2);
+  color: var(--text-secondary);
+}
+
+.agent-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.agent-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.agent-stat-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Pipeline */
+.pipeline-section {
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .pipeline {
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+  }
+}
+
+.pipeline-column {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 0.75rem;
+  min-height: 150px;
+}
+
+.column-header {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-count {
+  background: var(--bg-primary);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+}
+
+.opportunity-card {
+  background: var(--bg-card);
+  border-radius: 6px;
+  padding: 0.625rem;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid;
+}
+
+.opportunity-card.gig {
+  border-left-color: var(--gig-color);
+}
+
+.opportunity-card.trade {
+  border-left-color: var(--trade-color);
+}
+
+.opp-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.opp-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.opp-amount {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.opp-type {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Live Feed */
+.feed-section {
+  margin-bottom: 1rem;
+}
+
+.feed-container {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.feed-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.feed-item:last-child {
+  border-bottom: none;
+}
+
+.feed-time {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  min-width: 50px;
+}
+
+.feed-message {
+  font-size: 0.85rem;
+}
+
+.feed-item.scanner .feed-message {
+  color: var(--scanner-color);
+}
+
+.feed-item.research .feed-message {
+  color: var(--research-color);
+}
+
+/* Bottom Stats */
+.bottom-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.income-tracker, .next-actions {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.income-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.income-item {
+  text-align: center;
+}
+
+.income-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.income-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.income-value.total {
+  font-size: 1.5rem;
+}
+
+.checklist {
+  margin-top: 0.75rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+.checklist-item.done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checklist-item.done .checkbox {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.checkbox::after {
+  content: '✓';
+  font-size: 0.75rem;
+  color: var(--bg-primary);
+  display: none;
+}
+
+.checklist-item.done .checkbox::after {
+  display: block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  .progress-header {
+    padding: 1rem;
+  }
+  
+  .progress-amount {
+    font-size: 1.5rem;
+  }
+  
+  .progress-stats {
+    gap: 1rem;
+  }
+  
+  .pipeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .income-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
