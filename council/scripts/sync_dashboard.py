@@ -80,7 +80,7 @@ def sync_dashboard():
             "id": job.get("id", "unknown"),
             "name": title[:50],
             "type": "gig",
-            "amount": job.get("budget", 300),  # Use budget if available
+            "amount": job.get("budget") or 300,  # Use budget if available, default 300
             "stage": "detected",
             "createdAt": job.get("discovered_at", datetime.now().isoformat()),
             "url": job.get("url", "")
