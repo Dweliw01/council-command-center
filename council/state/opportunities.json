@@ -1,13 +1,341 @@
 {
-  "last_scan": "2026-02-06T23:10:54.490068Z",
+  "last_scan": "2026-02-07T01:57:10.276453Z",
   "jobs": {
-    "scan_time": "2026-02-06T23:10:54.490146Z",
-    "new_opportunities": [],
-    "analyzed": {}
+    "scan_time": "2026-02-07T01:57:10.276488Z",
+    "new_opportunities": [
+      {
+        "id": "9d2b66a191ef",
+        "title": "Scheduled Excel Report Automation",
+        "url": "https://www.freelancer.com/projects/automation/scheduled-excel-report-automation",
+        "source": "freelancer",
+        "keywords_matched": [
+          "automation",
+          "quick",
+          "freelancer"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 20,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Gig indicators: project, freelance"
+        ]
+      },
+      {
+        "id": "c5a2a2345f12",
+        "title": "",
+        "url": "https://www.freelancer.com/projects/amazon-web-services/Quicksight-Dashboard-Automation.html",
+        "source": "freelancer",
+        "keywords_matched": [
+          "automation",
+          "quick",
+          "freelancer"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 20,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Gig indicators: project, freelance"
+        ]
+      },
+      {
+        "id": "12199e667299",
+        "title": "",
+        "url": "https://www.freelancer.com/projects/data-processing/automate-resume-processing-screening",
+        "source": "freelancer",
+        "keywords_matched": [
+          "automation",
+          "quick",
+          "freelancer"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 20,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Gig indicators: project, freelance"
+        ]
+      },
+      {
+        "id": "23ed5b80db55",
+        "title": "I will make com automation, fix make com, integromat workflow, make error fix, made com",
+        "url": "https://www.fiverr.com/mc_jamesguire/make-com-automation-fix-make-com-integromat-workflow-make-error-fix-made-com",
+        "source": "fiverr",
+        "keywords_matched": [
+          "make",
+          "automation",
+          "fiverr"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 15,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Fiverr listing (typically short gigs)"
+        ]
+      },
+      {
+        "id": "46cd60092035",
+        "title": "I will fix make com error, make com automation made com",
+        "url": "https://www.fiverr.com/israel_soyemi/make-com-automation-make-com-scenario-make-com-made-com",
+        "source": "fiverr",
+        "keywords_matched": [
+          "make",
+          "automation",
+          "fiverr"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 15,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Fiverr listing (typically short gigs)"
+        ]
+      },
+      {
+        "id": "0df21e936408",
+        "title": "",
+        "url": "https://fiverr.com/vikky_o/make-com-automation-make-com-make-automation-made-com",
+        "source": "fiverr",
+        "keywords_matched": [
+          "make",
+          "automation",
+          "fiverr"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 15,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Fiverr listing (typically short gigs)"
+        ]
+      },
+      {
+        "id": "32919722970b",
+        "title": "",
+        "url": "https://www.fiverr.com/gigs/make-com-expert",
+        "source": "fiverr",
+        "keywords_matched": [
+          "make",
+          "automation",
+          "fiverr"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 15,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Fiverr listing (typically short gigs)"
+        ]
+      },
+      {
+        "id": "84541418b849",
+        "title": "Get the best make com setup services",
+        "url": "https://www.fiverr.com/gigs/make-com-setup",
+        "source": "fiverr",
+        "keywords_matched": [
+          "make",
+          "automation",
+          "fiverr"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 15,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Fiverr listing (typically short gigs)"
+        ]
+      },
+      {
+        "id": "d7c12bb7b1fd",
+        "title": "Get the best make com services",
+        "url": "https://www.fiverr.com/gigs/make-com?msockid=0fa0dc17c0fd62692639caccc1726307",
+        "source": "fiverr",
+        "keywords_matched": [
+          "make",
+          "automation",
+          "fiverr"
+        ],
+        "discovered_at": "2026-02-07T01:57:10.276488Z",
+        "gig_score": 15,
+        "budget": null,
+        "duration_type": "unknown",
+        "analysis_reasons": [
+          "Fiverr listing (typically short gigs)"
+        ]
+      }
+    ],
+    "stats": {
+      "total_found": 9,
+      "skipped_fulltime": 0
+    },
+    "analyzed": {
+      "https://www.freelancer.com/projects/automation/scheduled-excel-report-automation": {
+        "title": "Scheduled Excel Report Automation",
+        "url": "https://www.freelancer.com/projects/automation/scheduled-excel-report-automation",
+        "source": "freelancer",
+        "analysis": {
+          "relevance_score": 7,
+          "estimated_hours": 10,
+          "suggested_rate": 70,
+          "competition_level": "medium",
+          "matched_skills": [
+            "automation",
+            "data"
+          ]
+        },
+        "proposal_draft": "Hi! I specialize in automation automation with 5+ years of experience building complex workflows.\n\nFor your project, I can help with:\n\u2022 Building reliable, scalable automation workflows\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI've delivered similar projects including automated data pipelines, multi-step workflows, and API integrations. I pride myself on clean, maintainable automations with proper error handling.\n\nHappy to discuss your requirements in more detail!",
+        "recommendation": "APPLY",
+        "confidence": "medium",
+        "stage": "ready",
+        "analyzed_at": "2026-02-07T01:57:18.324453Z"
+      },
+      "https://www.freelancer.com/projects/amazon-web-services/Quicksight-Dashboard-Automation.html": {
+        "title": "",
+        "url": "https://www.freelancer.com/projects/amazon-web-services/Quicksight-Dashboard-Automation.html",
+        "source": "freelancer",
+        "analysis": {
+          "relevance_score": 1,
+          "estimated_hours": 10,
+          "suggested_rate": 60,
+          "competition_level": "high",
+          "matched_skills": []
+        },
+        "proposal_draft": "Hi! I'm a versatile developer with experience in automation, Python, and AI/ML.\n\nFor your project, I can help with:\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI focus on delivering clean, working solutions with clear communication throughout the project.\n\nHappy to discuss your needs in more detail!",
+        "recommendation": "MAYBE",
+        "confidence": "medium",
+        "stage": "researching",
+        "analyzed_at": "2026-02-07T01:57:18.325253Z"
+      },
+      "https://www.freelancer.com/projects/data-processing/automate-resume-processing-screening": {
+        "title": "",
+        "url": "https://www.freelancer.com/projects/data-processing/automate-resume-processing-screening",
+        "source": "freelancer",
+        "analysis": {
+          "relevance_score": 1,
+          "estimated_hours": 10,
+          "suggested_rate": 60,
+          "competition_level": "high",
+          "matched_skills": []
+        },
+        "proposal_draft": "Hi! I'm a versatile developer with experience in automation, Python, and AI/ML.\n\nFor your project, I can help with:\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI focus on delivering clean, working solutions with clear communication throughout the project.\n\nHappy to discuss your needs in more detail!",
+        "recommendation": "MAYBE",
+        "confidence": "medium",
+        "stage": "researching",
+        "analyzed_at": "2026-02-07T01:57:18.326037Z"
+      },
+      "https://www.fiverr.com/mc_jamesguire/make-com-automation-fix-make-com-integromat-workflow-make-error-fix-made-com": {
+        "title": "I will make com automation, fix make com, integromat workflow, make error fix, made com",
+        "url": "https://www.fiverr.com/mc_jamesguire/make-com-automation-fix-make-com-integromat-workflow-make-error-fix-made-com",
+        "source": "fiverr",
+        "analysis": {
+          "relevance_score": 10,
+          "estimated_hours": 10,
+          "suggested_rate": 75,
+          "competition_level": "low",
+          "matched_skills": [
+            "automation"
+          ]
+        },
+        "proposal_draft": "Hi! I specialize in Make.com automation with 5+ years of experience building complex workflows.\n\nFor your project, I can help with:\n\u2022 Building reliable, scalable automation workflows\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI've delivered similar projects including automated data pipelines, multi-step workflows, and API integrations. I pride myself on clean, maintainable automations with proper error handling.\n\nHappy to discuss your requirements in more detail!",
+        "recommendation": "APPLY",
+        "confidence": "high",
+        "stage": "ready",
+        "analyzed_at": "2026-02-07T01:57:18.326751Z"
+      },
+      "https://www.fiverr.com/israel_soyemi/make-com-automation-make-com-scenario-make-com-made-com": {
+        "title": "I will fix make com error, make com automation made com",
+        "url": "https://www.fiverr.com/israel_soyemi/make-com-automation-make-com-scenario-make-com-made-com",
+        "source": "fiverr",
+        "analysis": {
+          "relevance_score": 7,
+          "estimated_hours": 10,
+          "suggested_rate": 75,
+          "competition_level": "medium",
+          "matched_skills": [
+            "automation"
+          ]
+        },
+        "proposal_draft": "Hi! I specialize in automation automation with 5+ years of experience building complex workflows.\n\nFor your project, I can help with:\n\u2022 Building reliable, scalable automation workflows\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI've delivered similar projects including automated data pipelines, multi-step workflows, and API integrations. I pride myself on clean, maintainable automations with proper error handling.\n\nHappy to discuss your requirements in more detail!",
+        "recommendation": "APPLY",
+        "confidence": "medium",
+        "stage": "ready",
+        "analyzed_at": "2026-02-07T01:57:18.327319Z"
+      },
+      "https://fiverr.com/vikky_o/make-com-automation-make-com-make-automation-made-com": {
+        "title": "",
+        "url": "https://fiverr.com/vikky_o/make-com-automation-make-com-make-automation-made-com",
+        "source": "fiverr",
+        "analysis": {
+          "relevance_score": 1,
+          "estimated_hours": 10,
+          "suggested_rate": 60,
+          "competition_level": "high",
+          "matched_skills": []
+        },
+        "proposal_draft": "Hi! I'm a versatile developer with experience in automation, Python, and AI/ML.\n\nFor your project, I can help with:\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI focus on delivering clean, working solutions with clear communication throughout the project.\n\nHappy to discuss your needs in more detail!",
+        "recommendation": "MAYBE",
+        "confidence": "medium",
+        "stage": "researching",
+        "analyzed_at": "2026-02-07T01:57:18.327857Z"
+      },
+      "https://www.fiverr.com/gigs/make-com-expert": {
+        "title": "",
+        "url": "https://www.fiverr.com/gigs/make-com-expert",
+        "source": "fiverr",
+        "analysis": {
+          "relevance_score": 1,
+          "estimated_hours": 10,
+          "suggested_rate": 60,
+          "competition_level": "high",
+          "matched_skills": []
+        },
+        "proposal_draft": "Hi! I'm a versatile developer with experience in automation, Python, and AI/ML.\n\nFor your project, I can help with:\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI focus on delivering clean, working solutions with clear communication throughout the project.\n\nHappy to discuss your needs in more detail!",
+        "recommendation": "MAYBE",
+        "confidence": "medium",
+        "stage": "researching",
+        "analyzed_at": "2026-02-07T01:57:18.328320Z"
+      },
+      "https://www.fiverr.com/gigs/make-com-setup": {
+        "title": "Get the best make com setup services",
+        "url": "https://www.fiverr.com/gigs/make-com-setup",
+        "source": "fiverr",
+        "analysis": {
+          "relevance_score": 1,
+          "estimated_hours": 10,
+          "suggested_rate": 60,
+          "competition_level": "high",
+          "matched_skills": []
+        },
+        "proposal_draft": "Hi! I'm a versatile developer with experience in automation, Python, and AI/ML.\n\nFor your project, I can help with:\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI focus on delivering clean, working solutions with clear communication throughout the project.\n\nHappy to discuss your needs in more detail!",
+        "recommendation": "MAYBE",
+        "confidence": "medium",
+        "stage": "researching",
+        "analyzed_at": "2026-02-07T01:57:18.328807Z"
+      },
+      "https://www.fiverr.com/gigs/make-com?msockid=0fa0dc17c0fd62692639caccc1726307": {
+        "title": "Get the best make com services",
+        "url": "https://www.fiverr.com/gigs/make-com?msockid=0fa0dc17c0fd62692639caccc1726307",
+        "source": "fiverr",
+        "analysis": {
+          "relevance_score": 1,
+          "estimated_hours": 10,
+          "suggested_rate": 60,
+          "competition_level": "high",
+          "matched_skills": []
+        },
+        "proposal_draft": "Hi! I'm a versatile developer with experience in automation, Python, and AI/ML.\n\nFor your project, I can help with:\n\u2022 Implementing your specific requirements\n\u2022 Providing documentation and support\n\nI focus on delivering clean, working solutions with clear communication throughout the project.\n\nHappy to discuss your needs in more detail!",
+        "recommendation": "MAYBE",
+        "confidence": "medium",
+        "stage": "researching",
+        "analyzed_at": "2026-02-07T01:57:18.329318Z"
+      }
+    }
   },
   "trading": {
-    "scan_time": "2026-02-06T23:10:56.805088Z",
-    "market_status": "after-hours",
+    "scan_time": "2026-02-07T01:57:13.503749Z",
+    "market_status": "closed",
     "alerts": [
       {
         "symbol": "NVDA",
@@ -70,7 +398,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "high",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:10:58.976355Z"
+        "analyzed_at": "2026-02-07T01:57:18.068375Z"
       },
       "AMD": {
         "symbol": "AMD",
@@ -87,7 +415,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "medium",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:10:59.058985Z"
+        "analyzed_at": "2026-02-07T01:57:18.153061Z"
       },
       "PLTR": {
         "symbol": "PLTR",
@@ -104,7 +432,7 @@
         "recommendation": "BUY_DIP",
         "confidence": "medium",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:10:59.147446Z"
+        "analyzed_at": "2026-02-07T01:57:18.238055Z"
       },
       "SMCI": {
         "symbol": "SMCI",
@@ -121,21 +449,95 @@
         "recommendation": "BUY_DIP",
         "confidence": "medium",
         "stage": "ready",
-        "analyzed_at": "2026-02-06T23:10:59.228073Z"
+        "analyzed_at": "2026-02-07T01:57:18.323574Z"
       }
     }
   },
-  "summary": {
-    "new_jobs": 0,
-    "trading_alerts": 4,
-    "market_status": "after-hours"
+  "options": {
+    "scan_time": "2026-02-07T01:57:10.276453Z",
+    "alerts": [
+      {
+        "symbol": "NVDA",
+        "type": "momentum",
+        "direction": "CALLS",
+        "strike": 185,
+        "expiry": "2026-02-09",
+        "premium": 2.25,
+        "iv": 0.3178779150390625,
+        "underlying_price": 185.41000366210938,
+        "change_pct": 7.871770069195429,
+        "signal": "Big move +7.9% - CALLS play",
+        "risk": "MEDIUM"
+      },
+      {
+        "symbol": "AMD",
+        "type": "momentum",
+        "direction": "CALLS",
+        "strike": 210,
+        "expiry": "2026-02-13",
+        "premium": 5.89,
+        "iv": 0.5690961059570312,
+        "underlying_price": 208.44000244140625,
+        "change_pct": 8.280520748782468,
+        "signal": "Big move +8.3% - CALLS play",
+        "risk": "HIGH"
+      },
+      {
+        "symbol": "SMCI",
+        "type": "momentum",
+        "direction": "CALLS",
+        "strike": 35,
+        "expiry": "2026-02-13",
+        "premium": 1.03,
+        "iv": 0.6796907031250001,
+        "underlying_price": 34.380001068115234,
+        "change_pct": 11.442465617490974,
+        "signal": "Big move +11.4% - CALLS play",
+        "risk": "HIGH"
+      }
+    ],
+    "formatted": [
+      {
+        "symbol": "NVDA",
+        "play": "CALLS $185 2026-02-09",
+        "premium": "$2.25",
+        "iv": "31.8%",
+        "signal": "Big move +7.9% - CALLS play",
+        "risk": "MEDIUM",
+        "type": "options"
+      },
+      {
+        "symbol": "AMD",
+        "play": "CALLS $210 2026-02-13",
+        "premium": "$5.89",
+        "iv": "56.9%",
+        "signal": "Big move +8.3% - CALLS play",
+        "risk": "HIGH",
+        "type": "options"
+      },
+      {
+        "symbol": "SMCI",
+        "play": "CALLS $35 2026-02-13",
+        "premium": "$1.03",
+        "iv": "68.0%",
+        "signal": "Big move +11.4% - CALLS play",
+        "risk": "HIGH",
+        "type": "options"
+      }
+    ]
   },
-  "last_research": "2026-02-06T23:10:59.228845Z",
+  "summary": {
+    "new_jobs": 9,
+    "trading_alerts": 4,
+    "options_alerts": 3,
+    "market_status": "closed"
+  },
+  "last_research": "2026-02-07T01:57:18.329901Z",
   "research_summary": {
     "trades_analyzed": 4,
-    "gigs_analyzed": 0,
+    "gigs_analyzed": 9,
     "trades_ready": 4,
-    "gigs_ready": 0,
-    "last_run": "2026-02-06T23:10:59.228896Z"
+    "gigs_ready": 3,
+    "last_run": "2026-02-07T01:57:18.329948Z"
   }
 }

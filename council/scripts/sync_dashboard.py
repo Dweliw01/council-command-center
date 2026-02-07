@@ -81,6 +81,30 @@ def sync_dashboard():
             "createdAt": job.get("discovered_at", datetime.now().isoformat())
         })
     
+    # Extract options plays
+    options = opps.get("options", {})
+    options_alerts = options.get("alerts", [])
+    
+    for opt in options_alerts:
+        symbol = opt.get("symbol", "???")
+        direction = opt.get("direction", "CALLS")
+        strike = opt.get("strike", 0)
+        expiry = opt.get("expiry", "")
+        risk = opt.get("risk", "MEDIUM")
+        
+        opportunities.append({
+            "id": f"opt-{symbol.lower()}-{strike}-{datetime.now().strftime('%Y%m%d')}",
+            "name": f"🎰 {symbol} {direction} ${strike} ({expiry[:5]})",
+            "type": "options",
+            "amount": int(opt.get("premium", 1) * 100),  # Premium * 100 shares
+            "stage": "ready",  # Options are immediately actionable
+            "createdAt": options.get("scan_time", datetime.now().isoformat()),
+            "risk": risk,
+            "signal": opt.get("signal", ""),
+            "iv": opt.get("iv", 0),
+            "underlying_price": opt.get("underlying_price", 0)
+        })
+    
     # Build dashboard data
     now = datetime.now().isoformat() + "Z"
     
