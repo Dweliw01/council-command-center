@@ -133,10 +133,10 @@ function renderPipeline(opportunities) {
   const columns = stages.map(stage => {
     const items = grouped[stage];
     const cards = items.map((opp, idx) => {
-      const hasThesis = opp.thesis && opp.thesis.entry;
+      
       const clickable = hasThesis ? 'clickable' : '';
       return `
-        <div class="opportunity-card ${opp.type} ${clickable}" 
+        <div class="opportunity-card ${opp.type} clickable" 
              onclick="showOpportunityDetail('${opp.id}')"
              data-id="${opp.id}">
           <div class="opp-name" title="${opp.name}">${opp.name}</div>
@@ -187,54 +187,115 @@ function renderPipeline(opportunities) {
 
 function showOpportunityDetail(id) {
   const opp = window.opportunitiesData.find(o => o.id === id);
-  if (!opp || !opp.thesis) return;
+  if (!opp) return;
   
-  const t = opp.thesis;
-  const html = `
-    <h2>${opp.name}</h2>
-    <div class="thesis-badge ${opp.recommendation}">${opp.recommendation} (${opp.confidence} confidence)</div>
-    
-    <div class="thesis-section">
-      <h3>🐂 Bull Case</h3>
-      <p>${t.bull_case || 'N/A'}</p>
-    </div>
-    
-    <div class="thesis-section">
-      <h3>🐻 Bear Case</h3>
-      <p>${t.bear_case || 'N/A'}</p>
-    </div>
-    
-    <div class="thesis-levels">
-      <div class="level entry">
-        <span class="level-label">Entry</span>
-        <span class="level-value">$${t.entry?.toFixed(2) || 'N/A'}</span>
+  let html = `<h2>${opp.name}</h2>`;
+  
+  // Handle different types
+  if (opp.type === 'trade' && opp.thesis) {
+    // Trade with thesis
+    const t = opp.thesis;
+    html += `
+      <div class="thesis-badge ${opp.recommendation || ''}">${opp.recommendation || 'ANALYZING'} ${opp.confidence ? '(' + opp.confidence + ')' : ''}</div>
+      
+      <div class="thesis-section">
+        <h3>🐂 Bull Case</h3>
+        <p>${t.bull_case || 'Momentum play based on price action'}</p>
       </div>
-      <div class="level stop">
-        <span class="level-label">Stop Loss</span>
-        <span class="level-value">$${t.stop_loss?.toFixed(2) || 'N/A'}</span>
+      
+      <div class="thesis-section">
+        <h3>🐻 Bear Case</h3>
+        <p>${t.bear_case || 'Extended move may need consolidation'}</p>
       </div>
-      <div class="level target">
-        <span class="level-label">Target</span>
-        <span class="level-value">$${t.target?.toFixed(2) || 'N/A'}</span>
+      
+      <div class="thesis-levels">
+        <div class="level entry">
+          <span class="level-label">Entry</span>
+          <span class="level-value">${t.entry ? '$' + t.entry.toFixed(2) : 'N/A'}</span>
+        </div>
+        <div class="level stop">
+          <span class="level-label">Stop Loss</span>
+          <span class="level-value">${t.stop_loss ? '$' + t.stop_loss.toFixed(2) : 'N/A'}</span>
+        </div>
+        <div class="level target">
+          <span class="level-label">Target</span>
+          <span class="level-value">${t.target ? '$' + t.target.toFixed(2) : 'N/A'}</span>
+        </div>
       </div>
-    </div>
-    
-    <div class="thesis-rr">
-      <strong>Risk/Reward:</strong> ${t.risk_reward || 'N/A'}
-    </div>
-    
-    ${t.support ? `
-    <div class="thesis-sr">
-      <span><strong>Support:</strong> $${t.support?.toFixed(2)}</span>
-      <span><strong>Resistance:</strong> $${t.resistance?.toFixed(2)}</span>
-    </div>
-    ` : ''}
-  `;
+      
+      <div class="thesis-rr">
+        <strong>Risk/Reward:</strong> ${t.risk_reward || '2:1'}
+      </div>
+    `;
+  } else if (opp.type === 'options') {
+    // Options play
+    html += `
+      <div class="thesis-badge" style="background: #ff9800; color: #000;">OPTIONS PLAY</div>
+      
+      <div class="thesis-section">
+        <h3>🎰 Signal</h3>
+        <p>${opp.signal || 'Momentum-based options opportunity'}</p>
+      </div>
+      
+      <div class="thesis-levels">
+        <div class="level entry">
+          <span class="level-label">Premium</span>
+          <span class="level-value">$${(opp.amount / 100).toFixed(2)}</span>
+        </div>
+        <div class="level stop">
+          <span class="level-label">IV</span>
+          <span class="level-value">${opp.iv ? (opp.iv * 100).toFixed(1) + '%' : 'N/A'}</span>
+        </div>
+        <div class="level target">
+          <span class="level-label">Risk</span>
+          <span class="level-value">${opp.risk || 'MEDIUM'}</span>
+        </div>
+      </div>
+      
+      ${opp.underlying_price ? `
+      <div class="thesis-rr">
+        <strong>Underlying Price:</strong> $${opp.underlying_price.toFixed(2)}
+      </div>
+      ` : ''}
+    `;
+  } else if (opp.type === 'gig') {
+    // Freelance gig
+    html += `
+      <div class="thesis-badge" style="background: #4CAF50; color: #fff;">FREELANCE GIG</div>
+      
+      <div class="thesis-section">
+        <h3>💼 Opportunity</h3>
+        <p>Potential freelance project worth ~$${opp.amount}</p>
+      </div>
+      
+      <div class="thesis-levels">
+        <div class="level entry" style="grid-column: span 3;">
+          <span class="level-label">Estimated Value</span>
+          <span class="level-value">$${opp.amount}</span>
+        </div>
+      </div>
+      
+      ${opp.url ? `
+      <div style="margin-top: 1rem; text-align: center;">
+        <a href="${opp.url}" target="_blank" style="color: #00d9ff; text-decoration: underline;">View on Platform →</a>
+      </div>
+      ` : ''}
+    `;
+  } else {
+    // Generic fallback
+    html += `
+      <div class="thesis-section">
+        <h3>📋 Details</h3>
+        <p>Type: ${opp.type}</p>
+        <p>Value: $${opp.amount}</p>
+        <p>Stage: ${opp.stage}</p>
+      </div>
+    `;
+  }
   
   document.getElementById('modal-body').innerHTML = html;
   document.getElementById('opportunity-modal').classList.add('show');
 }
-
 function closeModal(event) {
   if (event && event.target.id !== 'opportunity-modal') return;
   document.getElementById('opportunity-modal').classList.remove('show');
