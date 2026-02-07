@@ -72,13 +72,18 @@ def sync_dashboard():
     new_jobs = jobs.get("new_opportunities", [])
     
     for job in new_jobs:
+        title = job.get("title", "").strip()
+        # Skip jobs without titles
+        if not title:
+            continue
         opportunities.append({
             "id": job.get("id", "unknown"),
-            "name": job.get("title", "Unknown Job")[:40],
+            "name": title[:50],
             "type": "gig",
-            "amount": 300,  # Default estimate
+            "amount": job.get("budget", 300),  # Use budget if available
             "stage": "detected",
-            "createdAt": job.get("discovered_at", datetime.now().isoformat())
+            "createdAt": job.get("discovered_at", datetime.now().isoformat()),
+            "url": job.get("url", "")
         })
     
     # Extract options plays
