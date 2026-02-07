@@ -12,6 +12,7 @@ from pathlib import Path
 # Import scanners
 from job_scanner import scan_jobs
 from trading_scanner import scan_trading
+from options_scanner import scan_options, format_options_alert
 
 # Output path for combined opportunities
 OUTPUT_FILE = Path("/root/council-command-center/council/state/opportunities.json")
@@ -47,14 +48,32 @@ def run_all_scans() -> dict:
         print(f"Trading scanner error: {e}")
         trading_results = {"scan_time": scan_time, "market_status": "unknown", "alerts": [], "error": str(e)}
     
+    # Run options scanner
+    print("\n🎰 OPTIONS SCANNER")
+    print("-" * 30)
+    try:
+        options_alerts = scan_options()
+        options_count = len(options_alerts)
+        print(f"Found {options_count} options plays")
+        options_results = {
+            "scan_time": scan_time,
+            "alerts": options_alerts,
+            "formatted": [format_options_alert(a) for a in options_alerts]
+        }
+    except Exception as e:
+        print(f"Options scanner error: {e}")
+        options_results = {"scan_time": scan_time, "alerts": [], "formatted": [], "error": str(e)}
+    
     # Combine results
     combined = {
         "last_scan": scan_time,
         "jobs": job_results,
         "trading": trading_results,
+        "options": options_results,
         "summary": {
             "new_jobs": len(job_results.get("new_opportunities", [])),
             "trading_alerts": len(trading_results.get("alerts", [])),
+            "options_alerts": len(options_results.get("alerts", [])),
             "market_status": trading_results.get("market_status", "unknown")
         }
     }
@@ -79,7 +98,7 @@ def run_all_scans() -> dict:
     
     # After syncing dashboard, run research on new opportunities
     research_status = None
-    if job_results.get("new_opportunities") or trading_results.get("alerts"):
+    if job_results.get("new_opportunities") or trading_results.get("alerts") or options_results.get("alerts"):
         print("\n📊 Running research analysis...")
         try:
             research_script = "/root/council-command-center/research/run_research.py"
@@ -98,7 +117,7 @@ def run_all_scans() -> dict:
     
     # Auto-deploy to Vercel if we have alerts
     deployed = False
-    if job_results.get("new_opportunities") or trading_results.get("alerts"):
+    if job_results.get("new_opportunities") or trading_results.get("alerts") or options_results.get("alerts"):
         print("\n🚀 Deploying dashboard to Vercel...")
         try:
             subprocess.run([
@@ -122,6 +141,7 @@ def run_all_scans() -> dict:
     print(f"Market: {combined['summary']['market_status']}")
     print(f"New Jobs: {combined['summary']['new_jobs']}")
     print(f"Trading Alerts: {combined['summary']['trading_alerts']}")
+    print(f"Options Plays: {combined['summary']['options_alerts']}")
     if research_status:
         print(f"Research: {'✅ Complete' if research_status == 'complete' else '❌ Failed'}")
     print(f"Deployed: {'✅ Yes' if deployed else '⏭️ No (no new alerts)'}")
@@ -130,6 +150,11 @@ def run_all_scans() -> dict:
         print("\n⚡ TRADING ALERTS:")
         for alert in trading_results["alerts"]:
             print(f"  {alert['symbol']}: {alert['signal']} ({alert['change_pct']:+.1f}%) - {alert['note']}")
+    
+    if options_results.get("alerts"):
+        print("\n🎰 OPTIONS PLAYS:")
+        for alert in options_results["formatted"]:
+            print(f"  {alert['symbol']}: {alert['play']} | {alert['signal']} | Risk: {alert['risk']}")
     
     if job_results.get("new_opportunities"):
         print("\n💼 NEW JOBS:")
