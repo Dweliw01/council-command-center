@@ -134,7 +134,6 @@ function renderPipeline(opportunities) {
     const items = grouped[stage];
     const cards = items.map((opp, idx) => {
       
-      const clickable = hasThesis ? 'clickable' : '';
       return `
         <div class="opportunity-card ${opp.type} clickable" 
              onclick="showOpportunityDetail('${opp.id}')"
